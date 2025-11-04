@@ -1,736 +1,122 @@
-<!DOCTYPE html>
-<html lang="tr">
+<!doctype html>
+<html lang=tr>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faiz Oranı Hesaplama</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-/* 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 500vh;
-            padding: 20px;
-        } */
-
-        .container {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            width: 100%;
-            max-width: 400px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-
-        label {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        button {
-            width: 50%;
-            padding: 12px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
-        h3 {
-            font-size: 18px;
-            color: #333;
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        span {
-            font-weight: bold;
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 20px;
-            }
-
-            input {
-                font-size: 14px;
-            }
-
-            button {
-                font-size: 16px;
-            }
-
-            h3 {
-                font-size: 16px;
-            }
-        }
-    </style>
-
-    <!-- exsel css kodlari aşağda  -->
-    <style>
-        .anamenu {
-            background-color: black;
-        }
-
-        .anamenu a {
-            color: aliceblue;
-            text-decoration: none;
-        }
-
-        .anamenu li {
-            display: inline-block;
-            padding: 10px;
-        }
-
-        .supmenu {
-            display: none;
-            background-color: rgb(0, 0, 0);
-            position: absolute;
-            margin-top: 10px;
-        }
-
-        .supmenu a {
-            color: white;
-        }
-
-        .supmenu li {
-            display: block;
-            padding: 10px;
-        }
-
-        .anamenu:hover .supmenu {
-            display: block;
-        }
-
-        .content {
-            display: none;
-            background-color: #fff;
-            padding: 10px;
-            margin-top: 10px;
-        }
-
-        .content.active {
-            display: block;
-        }
-    </style>
-
-
-    <style>
-        table {
-            border-collapse: collapse;
-background-color:rgb(164, 167, 180);
-        }
-
-        td {
-            padding: 8px;
-            border: 1px solid black;
-        }
-
-
-
-        .dataTable {
-            display: flex;
-            justify-content: first baseline;
-        }
-
-        .content,
-        button,
-        input {
-            display: flex;
-        }
-
-        .content {
-
-            display: none;
-        }
-    </style>
-
-</head>  
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>Zamon Shukurov CV </title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel=stylesheet>
+<style>:root{--bg:#ffffff;--card:#fbfdff;--text:#0f172a;--muted:#6b7280;--accent:#2563eb;--dark-bg:#0b1220;--dark-card:#0f1724;--dark-text:#e6eef8;--dark-muted:#9aa6bd}*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;background-image:url("./back.png")}.wrap{max-width:980px;margin:36px auto;padding:20px}.card{background:var(--card);border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,.06);overflow:hidden}.hero{display:flex;gap:20px;align-items:center;padding:28px}.avatar{width:96px;height:96px;border-radius:50px;background:linear-gradient(135deg,var(--accent),#7dd3fc)}img{border-radius:50px}.h-info{display:flex;flex-direction:column;gap:4px}.h-info h1{font-size:22px}.h-info p{color:var(--muted);font-size:14px}.controls{margin-left:auto;display:grid;grid-template-columns:95px 95px 95px;grid-template-rows:33px;gap:3px}.btn{background:#fff;border:1px solid rgba(15,23,42,.06);padding:8px 12px;border-radius:10px;cursor:pointer;font-size:14px}.content{display:grid;grid-template-columns:320px 1fr}aside{padding:22px;border-right:1px solid #eef6fb;background:linear-gradient(180deg,transparent,rgba(2,6,23,.01))}main{padding:28px}h3{margin-bottom:10px;color:var(--accent);font-size:18px}.muted{color:var(--muted);font-size:14px}.skill{margin-bottom:12px}.label{font-size:13px;margin-bottom:6px}.bar{height:10px;background:#e6eef7;border-radius:999px;overflow:hidden}.bar>i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),#60a5fa);width:0}.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.proj{background:rgba(255,255,255,.6);padding:12px;border-radius:8px;border:1px solid rgba(15,23,42,.04)}.tags{display:flex;gap:6px;flex-wrap:wrap}.tag{font-size:12px;padding:4px 8px;background:#eef6ff;border-radius:999px;color:var(--accent)}.timeline{position:relative;padding-left:14px}.timeline:before{content:'';position:absolute;left:6px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),#7dd3fc);border-radius:2px}.t-item{position:relative;padding:12px 0 12px 18px}.t-item:before{content:'';position:absolute;left:-6px;top:18px;width:12px;height:12px;border-radius:50%;background:var(--card);border:3px solid var(--accent)}form{display:grid;gap:8px}input,textarea{padding:10px;border-radius:8px;border:1px solid #e6eef7;background:0 0;font-family:inherit}.actions{display:flex;gap:8px;align-items:center}footer{padding:12px 20px;text-align:center;color:var(--muted);font-size:13px}.reveal{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}.reveal.show{opacity:1;transform:none}.dark{background:var(--dark-bg);color:var(--dark-text)}.dark .card{background:var(--dark-card);box-shadow:none}.dark .muted{color:var(--dark-muted)}.dark .proj{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.03)}@media (max-width:880px){.content{grid-template-columns:1fr}.avatar{width:80px;height:80px;border-radius:100px}.controls{margin-left:0;display:grid;grid-template-columns:95px;gap:3px}}#proje2{border:1px solid #000;border-radius:50px;width:30px;height:30px;background-color:#f8bb11}#proje1{border:1px solid #000;border-radius:50px;width:30px;height:30px;background-color:#47f811}</style>
+</head>
 <body>
-
-    <!-- bu excel tagrair pasda -->
-
-<h1>Selam Dünya</h1>
-
-    <ul class="anamenu">
-
-        <li class="bashi">
-            <a href="">sayfamenusu</a>
-
-
-        <li><a href="#" class="li_ichi_a_tagi" data-target="copydatelar">veri kopyalama</a></li>
-        <li><a href="#" class="li_ichi_a_tagi" data-target="deletelar">deletelar</a></li>
-
-        <li><a href="#" class="li_ichi_a_tagi" data-target="rowscellscalcular">rowscellscalcular</a></li>
-
-        <li><a href="#" class="li_ichi_a_tagi" data-target="indexcalcular">indexColumnCAlcu</a></li>
-
-        <li><a href="#" class="li_ichi_a_tagi" data-target="filelar"> edit file</a></li>
-        <li><a href="#" class="li_ichi_a_tagi" data-target="columnlar">columnlar</a> columnlar </li>
-
-
-
-
-
-
-    </ul>
-
-
-
-
-    <!-- ishora -->
-
-    <div class="content" id="copydatelar">
-        <input class="item" type="text" id="kaynak" placeholder="Kaynak (Örnek: 0:0+1+2,1:0+1+2)">
-        <input class="item" type="text" id="hedef" placeholder="Hedef (Örnek: 3:0+1+2,2:0+1+2)">
-        <button class="item" onclick="veriyiKopyala()">Veriyi Kopyala</button>
-        <button class="geridon" data-target="copydatelar">geri dönme</button>
-
-
-    </div>
-
-    <div class="content" id="deletelar"> <button class="item" id="remove-last-row-button">Son Satırı Kaldır</button>
-        <button class="item" id="clear-button">Tümünü Sil</button>
-        <button class="geridon" data-target="deletelar">geri dönme</button>
-
-    </div>
-
-    <div class="content " id="rowscellscalcular">
-
-        <label class="item" for="islem">İşlemi Girin (Örneğin: 1:0+1*2 2:0+1/2):</label> <input class="item" type="text"
-            id="islem"><br>
-        <button class="item" onclick="isleVeGoster()">call</button>
-
-
-        <button class="geridon" data-target="rowscellscalcular">geri dönme</button>
-    </div>
-
-    <div class="content" id="indexcalcular"> <input type="number" id="selectedColumn" placeholder="CalcuIndex" />
-        <button id="calculate-button">Hesapla</button>
-
-        <button class="geridon" data-target="indexcalcular">geri dönme</button>
-        <p id="total-paragraph"></p>
-
-
-    </div>
-
-    <div class="content" id="filelar">
-
-        <input type="file" id="file-input" accept=".html" placeholder="file girit" />
-        <button id="save-button">Kaydet</button>
-        <button id="fill-table-button">Tabloyu Doldur</button>
-        <button class="geridon" data-target="filelar">geri dönme</button>
-
-
-    </div>
-
-
-    <div class="content" id="columnlar">
-        <input class="satir" type="number" id="rowCount" placeholder="Satır Sayısı" />
-        <input class=" sutun" type="number" id="colCount" placeholder="Sütun Sayısı" />
-        <button class="satir" id="add-index-button">İndeksli table yarat</button>
-        <button class="sutun" id="add-row-col-button">duz table yarat</button>
-        <button class="geridon" data-target="columnlar">geri dönme</button>
-
-    </div>
-
-
-
-
-
-
-
-    <div class="dataTable">
-        <div id="editor"></div>
-        <table id="DataTablo"></table>
-
-
-    </div>
-
-
-    <div class="container">
-        <h1>Faiz Oranı ve Artış Hesaplama</h1>
-        
-        <label for="initialPrice">İlk Fiyat: </label>
-        <input type="number" id="initialPrice" placeholder="İlk fiyatı girin" required>
-
-        <label for="finalPrice">Son Fiyat: </label>
-        <input type="number" id="finalPrice" placeholder="Son fiyatı girin" required>
-
-        <button onclick="calculateProfit()">Hesapla</button>
-<br>
-        <h3>Faiz Oranı: <span id="interestRate">0</span>%</h3>
-        <h3>Artış Miktarı: <span id="priceIncrease">0</span> TL</h3>
-
-<!-- Diğer kodlar  aşağda -->
- <br>
- <br>
-
- 
-    <h1>Faiz Hesaplama Aracı</h1>
-    <label for="principal">Ana Para (₺):</label>
-    <input type="number" id="principal" placeholder="Örneğin 1000">
-
-    <label for="rate">Faiz Oranı (%):</label>
-    <input type="number" id="rate" placeholder="Örneğin 5">
-
-    <label for="time">Zaman (yıl):</label>
-    <input type="number" id="time" placeholder="Örneğin 2">
-
-    <button onclick="calculateInterest()">Hesapla</button>
-<br>
-    <div id="results"></div>
- 
-    <br>
-    <br>
-   
-
-
-    <h2>Elektrik Tüketimi Hesaplama</h2>
-    
-    <label for="power">Güç (Watt):</label><br>
-    <input type="number" id="power" placeholder="Örn: 200"><br>
-
-    <label for="hours">Saat:</label><br>
-    <input type="number" id="hours" placeholder="Örn: 1"><br>
-
-    <label for="minutes">Dakika:</label><br>
-    <input type="number" id="minutes" placeholder="Örn: 20"><br>
-
-    <button onclick="hesapla()">Tüketimi Hesapla</button>
-<br><p></p>
-    <div id="result"></div>
-
-
-
-
-
-
-
-    </div>
-
-
- 
-
-
-
-    <script>
-        function hesapla() {
-            // Kullanıcıdan değerleri alalım
-            const power = parseFloat(document.getElementById("power").value); // Güç (Watt)
-            const hours = parseFloat(document.getElementById("hours").value); // Saat
-            const minutes = parseFloat(document.getElementById("minutes").value); // Dakika
-            
-            // Dakikayı saat cinsine çevirelim
-            const totalHours = hours + (minutes / 60);
-
-            // Enerji tüketimini hesaplayalım (Watt-saat)
-            const consumptionWh = power * totalHours;
-
-            // Kilowatt-saat (kWh) cinsine çevirelim
-            const consumptionKWh = consumptionWh / 1000;
-
-            // Sonucu gösterelim
-            document.getElementById("result").innerText = 
-                `Toplam Tüketim: ${consumptionKWh.toFixed(3)} kWh`;
-        }
-    </script>
-
-    
-    <script>
-        function calculateInterest() {
-            let principal = parseFloat(document.getElementById('principal').value);
-            let rate = parseFloat(document.getElementById('rate').value);
-            let time = parseFloat(document.getElementById('time').value);
-
-            // Değerlerin boş veya geçersiz olup olmadığını kontrol et
-            if (!principal || !rate || !time) {
-                alert("Lütfen tüm alanlara geçerli değerler giriniz.");
-                return;
-            }
-
-            // Yüzdelik faiz oranını ondalık hale çevirme
-            rate = rate / 100;
-
-            // Basit faiz hesaplama
-            let simpleInterest = principal * (1 + rate * time);
-
-            // Bileşik faiz hesaplama
-            let compoundInterest = principal * Math.pow((1 + rate), time);
-
-            // Sonuçları gösterme
-            document.getElementById('results').innerHTML = `
-                <p><strong>Basit Faiz Sonucu:</strong> ₺${simpleInterest.toFixed(2)}</p>
-                <p><strong>Bileşik Faiz Sonucu:</strong> ₺${compoundInterest.toFixed(2)}</p>
-            `;
-            document.getElementById('results').style.display = 'block';
-        }
-    </script>
-
-
-
-    <script>
-        function calculateProfit() {
-            const initialPrice = parseFloat(document.getElementById("initialPrice").value);
-            const finalPrice = parseFloat(document.getElementById("finalPrice").value);
-
-            // Girişlerin geçerli olup olmadığını kontrol et
-            if (isNaN(initialPrice) || isNaN(finalPrice) || initialPrice <= 0 || finalPrice <= 0) {
-                alert("Lütfen geçerli fiyatlar girin!");
-                return;
-            }
-
-            // Artış miktarını hesapla
-            const priceIncrease = finalPrice - initialPrice;
-
-            // Faiz oranını hesapla
-            const interestRate = ((priceIncrease / initialPrice) * 100).toFixed(2);
-
-            // Sonuçları ekrana yazdır
-            document.getElementById("interestRate").textContent = interestRate;
-            document.getElementById("priceIncrease").textContent = priceIncrease.toFixed(2);
-        }
-    </script>
-
-
-<!-- excel app kodu aşağda  -->
-
-
-
-
-
-
-<script>
-    const class_group = document.querySelectorAll('.li_ichi_a_tagi');
-    const div_content = document.querySelectorAll('.content');
-    const geriDugmeler = document.querySelectorAll('.geridon');
-
-    class_group.forEach(button => {
-        button.addEventListener('click', () => {
-            const ishora_qil_target = button.getAttribute('data-target');
-            geriDugmeler.forEach(sil => {
-                const ishora = sil.getAttribute('data-target');
-                const id_ishora = document.getElementById(ishora);
-                id_ishora.classList.remove('active');
-            })
-            const ishorqilish_id_ga = document.getElementById(ishora_qil_target);
-            ishorqilish_id_ga.classList.add('active');
-        });
-    });
-
-    geriDugmeler.forEach(geriDugme => {
-        geriDugme.addEventListener('click', () => {
-            const ishora_qil_target = geriDugme.getAttribute('data-target');
-            const ishorqilish_id_ga = document.getElementById(ishora_qil_target);
-            ishorqilish_id_ga.classList.remove('active');
-        });
-    });
-</script>
-
-
-<script>
-    const table = document.getElementById("DataTablo");
-    const addRowColButton = document.getElementById("add-row-col-button");
-    const removeLastRowButton = document.getElementById("remove-last-row-button");
-    const calculateButton = document.getElementById("calculate-button");
-    const saveButton = document.getElementById("save-button");
-    const addIndexButton = document.getElementById("add-index-button");
-    const rowCountInput = document.getElementById("rowCount");
-    const colCountInput = document.getElementById("colCount");
-    const selectedColumnInput = document.getElementById("selectedColumn");
-    const totalParagraph = document.getElementById("total-paragraph");
-
-    window.addEventListener("load", function () {
-        const storedData = JSON.parse(localStorage.getItem("ozbek"));
-        if (storedData) {
-            for (let i = 0; i < storedData.length; i++) {
-                const newRow = table.insertRow();
-                for (let j = 0; j < storedData[i].length; j++) {
-                    const newCell = newRow.insertCell();
-                    newCell.contentEditable = true;
-                    newCell.textContent = storedData[i][j];
-                }
-            }
-        }
-    });
-
-    addRowColButton.addEventListener("click", function () {
-        const rowCount = parseInt(rowCountInput.value);
-        const colCount = parseInt(colCountInput.value);
-
-        for (let i = 0; i < rowCount; i++) {
-            const newRow = table.insertRow();
-            for (let j = 0; j < colCount; j++) {
-                const newCell = newRow.insertCell();
-                newCell.contentEditable = true;
-            }
-        }
-    });
-
-    removeLastRowButton.addEventListener("click", function () {
-        if (table.rows.length > 0) {
-            table.deleteRow(table.rows.length - 1);
-        }
-    });
-
-
-
-    saveButton.addEventListener("click", function () {
-        const ozbek = [];
-
-        for (let i = 0; i < table.rows.length; i++) {
-            const rowData = [];
-            for (let j = 0; j < table.rows[i].cells.length; j++) {
-                rowData.push(table.rows[i].cells[j].textContent);
-            }
-            ozbek.push(rowData);
-        }
-
-
-        localStorage.setItem("ozbek", JSON.stringify(ozbek));
-
-
-        const htmlTable = `<!DOCTYPE html>\n<html>\n<head>\n        <meta charset="UTF-8"> \n<meta http-equiv="X-UA-Compatible" content="IE=edge">   \n  <meta name="viewport" content="width=device-width, initial-scale=1.0"> \n
-<style>  td:hover { \n  background-color: rgb(220, 255, 196); \n}\n body {\n background-color: rgb(167, 165, 147);  \n }\ntable{  \n background-color: rgb(187, 188, 180);\nborder-collapse: collapse;\n width: 100%;\n}th,  td {\n border: 1px solid black;\n padding: 8px; \ntext-align: center;\n}</style>\n</head>\n<body> <table>\n${ozbek.map(row => `  <tr>\n${row.map(cell => `    <td>${cell}</td>`).join("\n")}\n  </tr>`).join("\n")
-            }\n</table>\n<body>\n</html>`;
-
-        const blob = new Blob([htmlTable], { type: "text/html" });
-        const a = document.createElement("a");
-        a.href = URL.createObjectURL(blob);
-        a.download = "ozbek.html";
-        a.style.display = "none";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(a.href);
-    });
-
-
-
-
-
-
-
-    //hesaplama kodu aşağda 
-
-    function calculateColumnTotal(columnNumber) {
-        if (columnNumber >= 0 && columnNumber < table.rows[0].cells.length) {
-            let total = 0;
-            for (let i = 1; i < table.rows.length; i++) {
-                const cellValue = parseFloat(table.rows[i].cells[columnNumber].textContent.replace(',', '.'));
-                if (!isNaN(cellValue)) {
-                    total += cellValue;
-
-                }
-            }
-            totalParagraph.textContent = `Sütun Toplamı: ${total.toFixed(2)}`;
-        } else {
-            totalParagraph.textContent = "Geçersiz sütun numarası!";
-        }
-    }
-
-    calculateButton.addEventListener("click", function () {
-        const columnNumber = parseInt(selectedColumnInput.value);
-        calculateColumnTotal(columnNumber);
-    });
-
-    // ^hesaplama kodu yukarda 
-
-
-
-
-    addIndexButton.addEventListener("click", function () {
-        const rowCount = parseInt(rowCountInput.value);
-        addIndexRows(rowCount);
-    });
-
-
-    function addIndexRows(rowCount) {
-        for (let i = 0; i < rowCount; i++) {
-            const newRow = table.insertRow();
-            const indexCell = newRow.insertCell(0);
-            indexCell.textContent = i + 1;
-            indexCell.style.fontWeight = "bold";
-            indexCell.style.backgroundColor = "rgb(191, 191, 191)";
-            for (let j = 1; j <= colCountInput.value; j++) {
-                const newCell = newRow.insertCell(j);
-                newCell.contentEditable = true;
-            }
-        }
-    }
-
-    const clearButton = document.getElementById("clear-button");
-
-    clearButton.addEventListener("click", function () {
-        table.innerHTML = ""; // Tabloyu boşalt
-        rowCountInput.value = ""; // Satır sayısı girişini sıfırla
-        colCountInput.value = ""; // Sütun sayısı girişini sıfırla
-        selectedColumnInput.value = ""; // Hesaplanacak sütun girişini sıfırla
-        totalParagraph.textContent = ""; // Hesap sonucunu sıfırla
-        localStorage.removeItem("ozbek"); // LocalStorage'daki veriyi sil
-    });
-
-
-
-</script>
-<script>
-    const fillTableButton = document.getElementById("fill-table-button");
-    const editor = document.getElementById("editor");
-    const fileInput = document.getElementById("file-input");
-    // "Tabloyu Doldur" düğmesi tıklanınca çalışacak işlev
-    fillTableButton.addEventListener("click", function () {
-        const htmlContent = editor.innerHTML;
-        table.innerHTML = htmlContent;
-    });
-    fileInput.addEventListener("change", (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-                const htmlContent = e.target.result;
-                editor.innerHTML = htmlContent;
-            };
-            reader.readAsText(file);
-        }
-    });
-
-</script>
-<script>
-    table.addEventListener("mousemove", function () {
-        const ozbek = [];
-
-        for (let i = 0; i < table.rows.length; i++) {
-            const rowData = [];
-
-
-            for (let j = 0; j < table.rows[i].cells.length; j++) {
-                rowData.push(table.rows[i].cells[j].textContent);
-            }
-            ozbek.push(rowData);
-        }
-
-        localStorage.setItem("ozbek", JSON.stringify(ozbek));
-
-    });
-
-
-
-</script>
-
-
-<script>
-    const xButtonid = document.getElementById('xButtonid');
-    const circleMenu = document.getElementById('circleMenu');
-
-    xButtonid.addEventListener('click', () => {
-        circleMenu.classList.toggle('active');
-    });
-
-
-
-
-
-    document.addEventListener('keydown', (event) => {
-        if (event.key === '?' || (event.key === 'y' && event.ctrlKey)) {
-            circleMenu.classList.toggle('active');
-
-        }
-    });
-</script>
-
-<script>
-
-    function veriyiKopyala() {
-        const kaynakInput = document.getElementById("kaynak");
-        const hedefInput = document.getElementById("hedef");
-        const kaynakVeri = kaynakInput.value.trim();
-        const hedefVeri = hedefInput.value.trim();
-
-        if (!kaynakVeri || !hedefVeri) {
-            return;
-        }
-
-        const kaynakBilgileri = kaynakVeri.split(",");
-        const hedefBilgileri = hedefVeri.split(",");
-
-        const tablo = document.querySelector("table");
-
-        for (let i = 0; i < kaynakBilgileri.length; i++) {
-            const kaynakSatirSutun = kaynakBilgileri[i].trim().split(":");
-            const hedefSatirSutun = hedefBilgileri[i].trim().split(":");
-
-            const kaynakSatir = parseInt(kaynakSatirSutun[0]);
-            const hedefSatir = parseInt(hedefSatirSutun[0]);
-
-            if (isNaN(kaynakSatir) || isNaN(hedefSatir) || kaynakSatir >= tablo.rows.length || hedefSatir >= tablo.rows.length) {
-                alert("Geçersiz satır indeksi.");
-                return;
-            }
-
-            const kaynakSutunlar = kaynakSatirSutun[1].split("+").map(s => parseInt(s));
-            const hedefSutunlar = hedefSatirSutun[1].split("+").map(s => parseInt(s));
-
-            for (let j = 0; j < kaynakSutunlar.length; j++) {
-                const kaynakSutun = kaynakSutunlar[j];
-                const hedefSutun = hedefSutunlar[j];
-
-                if (kaynakSutun < 0 || hedefSutun < 0 || kaynakSutun >= tablo.rows[kaynakSatir].cells.length || hedefSutun >= tablo.rows[hedefSatir].cells.length) {
-                    alert("Geçersiz sütun indeksi.");
-                    return;
-                }
-
-                tablo.rows[hedefSatir].cells[hedefSutun].textContent = tablo.rows[kaynakSatir].cells[kaynakSutun].textContent;
-            }
-
-            // Kaynak hücreleri temizle
-            for (let j = 0; j < kaynakSutunlar.length; j++) {
-                const kaynakSutun = kaynakSutunlar[j];
-                tablo.rows[kaynakSatir].cells[kaynakSutun].textContent = "";
-            }
-        }
-    }
-
-
-</script>
-
-
+<div class=wrap>
+<div class=card>
+<div class=hero>
+<div class=avatar>
+<img src=./tech.jpg alt=zsh height=96px width=96px>
+</div>
+<div class=h-info>
+<h1 class=muted>Zamon Shukurov</h1>
+<p class=muted>Frontend / Backand</p>
+</div>
+<div class=controls>
+<select class=btn id=dilsec title="Til Tanlash">
+<option value=uz>O'zbek</option>
+<option value=tr>Turk</option>
+<option value=en>English</option>
+<option value=ru>Rus</option>
+</select>
+<button class=btn id=toggle-theme title=kecha/kunduz>🌙</button>
+<button class=btn id=download-pdf>⬇️</button>
+</div>
+</div>
+<div class=content>
+<aside>
+<section class=reveal>
+<h3 id=iletism>İletişim</h3>
+<div class=muted>Github: zsh1010101</div>
+<div class=muted>Telfon: +99895 1900304</div>
+<div class=muted>Telegram: @zsh22</div>
+<div style=height:20px></div>
+</section>
+<section class=reveal>
+<h3 id=kisa>Kısa</h3>
+<p class=muted id=subkisa>Kullanıcı odaklı, performans ve erişilebilirliği önemseyen web geliştiricisi.</p>
+<div style=height:20px></div>
+</section>
+<section class=reveal>
+<h3 id=beceriler>Beceriler</h3>
+<div class=muted>Html</div>
+<div class=muted>Css</div>
+<div class=muted>Reactjs</div>
+<div class=muted>Nextjs</div>
+<div class=muted>Nesjs</div>
+<div class=muted>Prisma</div>
+<div class=muted>Postgresql</div>
+<div class=muted>Git</div>
+<div class=muted>GitHub</div>
+<div class=muted>Docker</div>
+<div style=height:20px></div>
+</section>
+<section class=reveal>
+<h3 id=diller>Diller</h3>
+<div class=muted id=subdiller>O'zbek(Ona til)</div>
+<div class=muted id=subdiller>Turk(Ana dil)</div>
+<div class=muted id=subdiller>Ingiliz(Intermediate)</div>
+<div class=muted id=subdiller>Rus(средний)</div>
+<div style=height:20px></div>
+</section>
+</aside>
+<main>
+<section class=reveal>
+<h3 id=hakkimde>Hakkımda</h3>
+<div class=muted id=subhakkinde>
+</div>
+<div style=height:20px></div>
+</section>
+<section class=reveal>
+<h3 id=projeler>Projeler</h3>
+<div class=projects>
+<div class=proj>
+<p class=muted id=proje2></p>
+<p class=muted id=subprojeler2 style=padding:30px> </p>
+<div class=tags>
+<span class=tag>Css</span>
+<span class=tag>Reactjs</span>
+<span class=tag>Nextjs</span>
+<span class=tag>Typescript</span>
+<span class=tag>Nestjs</span>
+<span class=tag>Prisma</span>
+<span class=tag>Postgresql</span>
+</div>
+</div>
+<div class=proj>
+<p class=muted id=proje1></p>
+<p class=muted id=subprojeler1 style=padding:30px> </p>
+<div class=tags>
+<span class=tag>Html</span>
+<span class=tag>Css</span>
+<span class=tag>Javascript</span>
+</div>
+</div>
+<div class=proj>
+<p class=muted id=proje1></p>
+<p class=muted id=subprojeler style=padding:30px> </p>
+<div class=tags>
+<span class=tag>Html</span>
+<span class=tag>Css</span>
+<span class=tag>Javascript</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<footer>
+© <span id=year></span> zsh cv
+</footer>
+</div>
+</div>
+<script>const dil={uz:{iletism:"Aloqa",kisa:"Qisqa ma’lumot",subkisa:"Foydalanuvchi markazidagi yondashuv bilan ishlaydigan, samaradorlik va qulaylikka ahamiyat beruvchi veb dasturchiman.",beceriler:"Ko‘nikmalar",diller:"Tillar",subdiller:"",hakkimde:"Men haqimda",subhakkinde:"Oʻzimning qiziqishim va qatʼiyatim bilan dasturlash olamida kuchli texnik poydevor yaratdim. Loyihalar ishlab chiqish orqali oʻrgandim va shu yoʻl bilan zamonaviy veb texnologiyalarida haqiqiy tajriba orttirdim. Doim izlanadigan, oʻrganishga ochiq va yechimga yoʻnaltirilgan dasturchiman.",projeler:"Loyihalar",subprojeler:"Excel koʻrinishidagi veb asosli jadval ilovasi. Dinamik qator va ustunlar yaratadigan, ustun indekslariga qarab avtomatik hisob-kitoblarni amalga oshiradigan veb asosli jadval ilovasini ishlab chiqdim. Foydalanuvchilar jadvalni saqlashi, keyinchalik tahrirlashi va maʼlumotlarni brauzer orqali boshqarishi mumkin.",subprojeler1:"Dori omborini boshqarish ilovasi (SVG vizuallashtirish bilan) Dori zaxiralari va javon joylashuvlarini boshqarishni osonlashtiradigan veb-ilova ishlab chiqdim. Dori roʻyxati Excel formatida dasturga yuklanadi; har bir dori javon raqami va koordinatalar bilan SVG chizmasida vizuallashtiriladi. Foydalanuvchi dori nomini yozib, tegishli javonni darhol topishi mumkin.",subprojeler2:"Bozor avtomatlashtirish tizimi. Do‘konlarda mahsulot, zaxira va savdo boshqaruvini osonlashtiradigan veb-asosli avtomatlashtirish tizimini ishlab chiqyapman. Mahsulotlar qo‘shilishi va narx ma’lumotlari dinamik tarzda boshqarilishi mumkin. Tizim do‘kon xodimlarining ish yukini kamaytirib, tez va xatosiz ishlashni ta’minlaydi "},tr:{iletism:"İletişim",kisa:"kısa",subkisa:"Kullanıcı odaklı yaklaşımla çalışan, performans ve erişilebilirliğe önem veren bir web geliştiricisiyim.",beceriler:"Beceriler",diller:"Diller",subdiller:"",hakkimde:"Hakkımda",subhakkinde:" Kendi merakım ve azmimle yazılım dünyasında güçlü bir teknik altyapı edindim. Projeler geliştirerek öğrendim, bu sayede modern web teknolojilerinde gerçek deneyim kazandım. Sürekli araştıran, öğrenmeye açık ve çözüm odaklı bir geliştiriciyim.",projeler:"Projeler",subprojeler:"Excel Görünümlü Web Tabanlı Tablo Uygulaması. Dinamik satır ve sütun oluşturabilen, sütun indekslerine göre otomatik hesaplama yapan web tabanlı tablo uygulaması geliştirdim. Kullanıcılar tabloyu kaydedebilir, sonradan düzenleyebilir ve verileri tarayıcı üzerinde yönetebilir.",subprojeler1:"laç Depo Yönetim Uygulaması (SVG Görselleştirme ile) İlaç stoklarının ve raf konumlarının yönetimini kolaylaştıran bir web uygulaması geliştirdim. Excel formatında ilaç listesi programa yüklenir; her ilaç, raf numarası ve koordinat bilgisiyle SVG çiziminde görselleştirilir. Kullanıcı, ilaç adını yazarak ilgili rafı anında bulabilir.",subprojeler2:"Market Otomasyon Sistemi. Marketlerde stok, ürün ve satış yönetimini kolaylaştıran bir web tabanlı otomasyon sistemi geliştiriyorum. Ürünler eklenebilir ve fiyat bilgileri dinamik olarak yönetilebiliyor. Sistem, market çalışanlarının iş yükünü azaltarak hızlı ve hatasız işlem yapılmasını sağlar."},en:{iletism:"Contact",kisa:"Summary",subkisa:"I am a web developer who works with a user-centered approach and values performance and accessibility.",beceriler:"Skills",diller:"Languages",subdiller:"",hakkimde:"About Me",subhakkinde:"With my curiosity and determination, I have built a strong technical foundation in the world of software development. By developing projects, I have learned and gained real-world experience in modern web technologies. I am a developer who is constantly exploring, eager to learn, and focused on creating solutions.",projeler:"Projects",subprojeler:"Excel-like Web-Based Spreadsheet Application. I developed a web-based spreadsheet application capable of dynamically creating rows and columns, performing automatic calculations based on column indices. Users can save, edit, and manage their data directly within the browser.",subprojeler1:"Pharmaceutical Warehouse Management Application (with SVG Visualization) I developed a web application that simplifies the management of medicine stocks and shelf locations. The list of medicines is uploaded in Excel format; each medicine is visualized on an SVG diagram with its shelf number and coordinates. Users can instantly find the relevant shelf by typing the medicine name.",subprojeler2:"Market Automation System. I am developing a web-based automation system that simplifies stock, product, and sales management for markets. Products can be added, and pricing information is managed dynamically. The system reduces employees’ workload and ensures fast, accurate transactions."},ru:{iletism:"Контакт",kisa:"Кратко",subkisa:"Я веб-разработчик, работающий с ориентированным на пользователя подходом и придающий большое значение производительности и доступности.",beceriler:"Навыки",diller:"Языки",subdiller:"",hakkimde:"Обо мне",subhakkinde:"Благодаря своему интересу и настойчивости я приобрёл прочную техническую базу в мире программирования. Разрабатывая проекты, я учился и получил реальный опыт работы с современными веб-технологиями. Я разработчик, который постоянно исследует, открыт к обучению и ориентирован на решение задач.",projeler:"Проекты",subprojeler:"Веб-приложение таблицы в стиле Excel. Разработал веб-приложение таблицы, способное динамически создавать строки и столбцы и выполнять автоматические вычисления на основе индексов столбцов. Пользователи могут сохранять, редактировать и управлять данными прямо в браузере.",subprojeler1:"Приложение для управления аптечным складом (с визуализацией SVG) Разработал веб-приложение, упрощающее управление запасами лекарств и расположением полок. Список лекарств загружается в программу в формате Excel; каждое лекарство визуализируется на SVG-схеме с указанием номера полки и координат. Пользователь может мгновенно найти нужную полку, введя название лекарства.",subprojeler2:"Система автоматизации магазина. Разрабатываю веб-систему автоматизации, упрощающую управление запасами, товарами и продажами в магазинах. Товары можно добавлять, а ценовая информация управляется динамически. Система снижает нагрузку на сотрудников и обеспечивает быстрые и безошибочные операции."}},iletism=document.getElementById("iletism"),kisa=document.getElementById("kisa"),beceriler=document.getElementById("beceriler"),diller=document.getElementById("diller"),hakkimde=document.getElementById("hakkimde"),projeler=document.getElementById("projeler"),dilsec=document.getElementById("dilsec"),subkisa=document.getElementById("subkisa"),subhakkinde=document.getElementById("subhakkinde"),subprojeler=document.getElementById("subprojeler"),subprojeler1=document.getElementById("subprojeler1"),subprojeler2=document.getElementById("subprojeler2");function changelange(e){const a=dil[e];iletism.textContent=a.iletism,kisa.textContent=a.kisa,beceriler.textContent=a.beceriler,diller.textContent=a.diller,hakkimde.textContent=a.hakkimde,projeler.textContent=a.projeler,subkisa.textContent=a.subkisa,subhakkinde.textContent=a.subhakkinde,subprojeler.textContent=a.subprojeler,subprojeler1.textContent=a.subprojeler1,subprojeler2.textContent=a.subprojeler2}changelange("uz"),dilsec.addEventListener("change",(e=>{changelange(e.target.value)}))</script>
+<script>const toggleBtn=document.getElementById("toggle-theme"),downloadBtn=document.getElementById("download-pdf"),yearSpan=document.getElementById("year");yearSpan.textContent=(new Date).getFullYear();let dark="true"===localStorage.getItem("dark-mode");function setTheme(e){e?(document.documentElement.classList.add("dark"),toggleBtn.textContent="☀️"):(document.documentElement.classList.remove("dark"),toggleBtn.textContent="🌙")}setTheme(dark),toggleBtn.addEventListener("click",(()=>{dark=!dark,setTheme(dark),localStorage.setItem("dark-mode",dark)})),downloadBtn.addEventListener("click",(()=>window.print()));const reveals=document.querySelectorAll(".reveal"),io=new IntersectionObserver((e=>{e.forEach((e=>{e.isIntersecting&&e.target.classList.add("show")}))}),{threshold:.12});reveals.forEach((e=>io.observe(e)))</script>
 </body>
 </html>
